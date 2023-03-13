@@ -22,7 +22,7 @@ pipeline{
             steps{
                 // Deploy on container --> plugin
                 deploy adapters: [tomcat9(credentialsId: '17fcd11e-8b88-4835-b2bd-a3b42faf1414', path: '', url: 'http://13.233.30.239:8080/')], contextPath: '/app', war: '**/*.war'
-                mail bcc: '', body: '', cc: '', from: '', replyTo: '', subject: 'deployed on test server  success', to: 'mohdabdulmujeeb55@gmail.com'
+                emailext body: 'Test passed Successfully', subject: 'Test Success Notification', to: 'mohdabdulmujeeb55@gmail.com'
                
             }
         }
