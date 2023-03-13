@@ -22,7 +22,7 @@ pipeline{
             steps{
                 // Deploy on container --> plugin
                 deploy adapters: [tomcat9(credentialsId: '17fcd11e-8b88-4835-b2bd-a3b42faf1414', path: '', url: 'http://13.233.30.239:8080/')], contextPath: '/app', war: '**/*.war'
-                emailext body: 'Test passed Successfully', subject: 'Test Success Notification', to: 'de.mujeeb@gmail.com'
+                emailext body: 'Test passed Successfully', subject: 'Test Success Notification', to: 'mohdabdulmujeeb55@gmail.com'
                
             }
         }
@@ -34,7 +34,6 @@ pipeline{
             steps{
                  // Deploy on container --> plugin
                 deploy adapters: [tomcat9(credentialsId: '17fcd11e-8b88-4835-b2bd-a3b42faf1414', path: '', url: 'http://43.205.120.65:8080/')], contextPath: '/app', war: '**/*.war'
-                emailext body: 'Test failed', subject: 'Test failed Notification', to: 'de.mujeeb@gmail.com'
                
             }
         }
