@@ -4,15 +4,13 @@ pipeline{
     stages{
         stage("Test"){
             steps{
-                // mvn test
-                echo "========always========"
+               sh 'mvn test'
                 
             }
         }
         stage("Build"){
             steps{
-                //mvn install
-                echo "========always========"
+                   sh 'mvn package'
                 
             }
         }
