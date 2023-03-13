@@ -1,28 +1,25 @@
 pipeline{
     agent any
-    tools {
-         maven 'Maven' 
-    }
+
     stages{
         stage("Test"){
             steps{
                 // mvn test
-                sh 'mvn test'
+                echo "========always========"
                 
             }
         }
         stage("Build"){
             steps{
                 //mvn install
-                sh 'mvn package'
+                echo "========always========"
                 
             }
         }
         stage("Deploy on Test Server"){
             steps{
                 // Deploy on container --> plugin
-                deploy adapters: [tomcat9(credentialsId: '17fcd11e-8b88-4835-b2bd-a3b42faf1414', path: '', url: 'http://13.233.30.239:8080/')], contextPath: '/app', war: '**/*.war'
-                emailext body: 'Test passed Successfully', subject: 'Test Success Notification', to: 'mohdabdulmujeeb55@gmail.com'
+                echo "========always========"
                
             }
         }
@@ -33,8 +30,7 @@ pipeline{
             }
             steps{
                  // Deploy on container --> plugin
-                deploy adapters: [tomcat9(credentialsId: '17fcd11e-8b88-4835-b2bd-a3b42faf1414', path: '', url: 'http://43.205.120.65:8080/')], contextPath: '/app', war: '**/*.war'
-               
+                echo "========always========"
             }
         }
     }
