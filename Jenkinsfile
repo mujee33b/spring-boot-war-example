@@ -33,6 +33,7 @@ pipeline{
             steps{
                  // Deploy on container --> plugin
                 echo "deploy on prod server"
+                emailext body: 'passed successfully', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
                 deploy adapters: [tomcat9(credentialsId: '008dba6a-bc59-4968-8f67-5750191c675f', path: '', url: 'http://13.233.61.83:8080/')], contextPath: '/app', war: '**/*.war'
             }
         }
