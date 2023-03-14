@@ -34,7 +34,7 @@ pipeline{
                 
             }
         }
-        stage("Deploy on Prod Server"){
+        stage1("Deploy on Prod Server"){
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
