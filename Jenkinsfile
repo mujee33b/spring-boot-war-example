@@ -25,7 +25,7 @@ pipeline{
             emailext body: 'delpoy on test ser successfully executed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
         }
         failure{
-             slackSend channel: 'mail-to-get-notification-in-jenkins', message: 'deploy on test server failed '
+            
             emailext body: 'delpoy on test ser failed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
         }
     }
@@ -48,7 +48,7 @@ pipeline{
             emailext body: 'delpoy on prod ser successfully executed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
         }
         failure{
-             slackSend channel: 'mail-to-get-notification-in-jenkins', message: 'deploy on prod server failed '
+             
             emailext body: 'delpoy on prod ser failed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
         }
     }
@@ -65,12 +65,12 @@ pipeline{
             echo "========always========"
         }
         success{
-             slackSend channel: 'mail-to-get-notification-in-jenkins', message: 'pipeline executed '
+             
             emailext body: 'pipeline successfully executed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
             echo "========pipeline executed successfully ========"
         }
         failure{
-             slackSend channel: 'mail-to-get-notification-in-jenkins', message: 'pipeline failed '
+            
             emailext body: 'pipeline failed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
             echo "========pipeline execution failed========"
         }
