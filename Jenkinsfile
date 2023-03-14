@@ -22,7 +22,7 @@ pipeline{
             steps{
                 // Deploy on container --> plugin
                 echo "deploy on test server"
-                deploy adapters: [tomcat9(path: '', url: 'http://65.2.39.54:8080/')], contextPath: '/app', war: '**/*.war'
+            deploy adapters: [tomcat9(credentialsId: '658ab3bd-31a8-4a2f-a2e9-20dcfa0760f7', path: '', url: 'http://65.2.39.54:8080/')], contextPath: '/app', war: '**/*.war'
             }
         }
         stage("Deploy on Prod Server"){
