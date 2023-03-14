@@ -21,6 +21,7 @@ pipeline{
         stage("Deploy on Test Server"){
        post{
         success{
+            slackSend channel: 'mail-to-get-notification-in-jenkins', message: 'deploy on test server successfully '
             emailext body: 'delpoy on test ser successfully executed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
         }
         failure{
@@ -41,6 +42,7 @@ pipeline{
             }
              post{
         success{
+            slackSend channel: 'mail-to-get-notification-in-jenkins', message: 'deploy on prod server successfully '
             emailext body: 'delpoy on prod ser successfully executed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
         }
         failure{
