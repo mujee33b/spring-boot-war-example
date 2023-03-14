@@ -25,12 +25,14 @@ pipeline{
             emailext body: 'delpoy on test ser successfully executed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
         }
         failure{
+             slackSend channel: 'mail-to-get-notification-in-jenkins', message: 'deploy on test server failed '
             emailext body: 'delpoy on test ser failed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
         }
     }
             steps{
                 // Deploy on container --> plugin
                 echo "deploy on test server"
+                
                 deploy adapters: [tomcat9(credentialsId: '658ab3bd-31a8-4a2f-a2e9-20dcfa0760f7', path: '', url: 'http://65.2.39.54:8080/')], contextPath: '/app', war: '**/*.war'
                 
             }
@@ -46,6 +48,7 @@ pipeline{
             emailext body: 'delpoy on prod ser successfully executed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
         }
         failure{
+             slackSend channel: 'mail-to-get-notification-in-jenkins', message: 'deploy on prod server failed '
             emailext body: 'delpoy on prod ser failed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
         }
     }
@@ -62,10 +65,12 @@ pipeline{
             echo "========always========"
         }
         success{
+             slackSend channel: 'mail-to-get-notification-in-jenkins', message: 'pipeline executed '
             emailext body: 'pipeline successfully executed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
             echo "========pipeline executed successfully ========"
         }
         failure{
+             slackSend channel: 'mail-to-get-notification-in-jenkins', message: 'pipeline failed '
             emailext body: 'pipeline failed', subject: 'test for success notification', to: 'mohdabdulmujeeb55@gmail.com'
             echo "========pipeline execution failed========"
         }
